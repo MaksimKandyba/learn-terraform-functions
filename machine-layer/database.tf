@@ -16,10 +16,18 @@ resource "null_resource" "unmount_db_volume_in_bg" {
 }
 
 resource "fly_machine" "db" {
-  app        = "kandyba-mysql"
-  region     = var.fly_region
-  name       = "kandyba-mysql-machine"
-  image      = "mysql:5.7.28"
+  app    = "kandyba-mysql"
+  region = var.fly_region
+  name   = "kandyba-mysql-machine"
+  image  = "mysql:5.7.28"
+  # it could work if heredoc tags wouldn't emerge while parsing
+  #image = templatefile("user_data.tftpl",
+  #  {
+  #    major = var.db_major,
+  #    minor = var.db_minor,
+  #    patch = var.db_patch
+  #  }
+  #)
   cpus       = 1
   memorymb   = 256
   depends_on = [null_resource.unmount_db_volume_in_bg]

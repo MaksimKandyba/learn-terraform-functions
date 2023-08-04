@@ -66,3 +66,21 @@ variable "db_root_password" {
   type        = string
   sensitive   = true
 }
+
+variable "db_major" {
+  description = "Database major version"
+  type        = number
+  default     = 5
+}
+
+variable "db_minor" {
+  description = "Database minor version"
+  type        = number
+  default     = 7
+}
+
+variable "db_patch" {
+  description = "Database patch version"
+  type        = number
+  default     = 28
+}
