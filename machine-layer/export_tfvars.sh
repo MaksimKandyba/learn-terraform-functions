@@ -1,7 +1,7 @@
 # caution:
 # sensitive values shall never be checked into version control in a real system
 # hint:
-# run this thru eval
+# run this thru eval, viz eval "$(./export_tfvars.sh)"
 echo export TF_VAR_db_name=some_another_db
 echo export TF_VAR_db_username=admin
 echo export TF_VAR_db_password=adifferentpassword
