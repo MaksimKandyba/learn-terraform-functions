@@ -9,6 +9,6 @@ provider "fly" {
 
 resource "fly_ip" "exampleIp" {
   app  = "kandyba-flyiac"
-  type = "v4"
+  type = lookup(var.ip_width, 32)
   #depends_on = [fly_app.exampleApp]
 }
